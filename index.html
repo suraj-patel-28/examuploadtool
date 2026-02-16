@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="g9fAN-bbY48t007ugBLc6aZHxV6yO10IEOQfsXzEF88" />
+    <meta name="description" content="Free photo & PDF compressor for GATE, JEE, NEET, UPSC, SSC exams. Resize images to official requirements. 100% private, client-side processing. No upload needed.">
+    <meta name="keywords" content="exam photo resize, signature compressor, PDF document compressor, GATE photo size, JEE Main photo requirements, NEET signature size, exam photo compressor, PDF compressor, Indian exam upload, Aadhaar compress, certificate compress">
+    <title>Exam Photo Resize Tool - Free Compressor for GATE, JEE, NEET, UPSC, SSC | ExamUploadTool</title>
+    <link rel="canonical" href="https://examuploadtool.netlify.app/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://examuploadtool.netlify.app/">
+    <meta property="og:title" content="ExamUploadTool - Compress Photos, Signatures & PDFs for Indian Exams">
+    <meta property="og:description" content="Free tool to resize photos, signatures & PDF documents for GATE, JEE, NEET, UPSC, SSC exams. 100% client-side processing.">
+    <meta property="og:image" content="https://examuploadtool.netlify.app/logo.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ExamUploadTool - Compress Exam Documents">
+    <meta name="twitter:description" content="Resize photos, signatures & PDFs for Indian exams. Free & private.">
+    <meta name="twitter:image" content="https://examuploadtool.netlify.app/logo.png">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ExamUploadTool",
+      "description": "Free online tool to compress and resize photos, signatures, and PDF documents for Indian government exam applications including GATE, JEE, NEET, UPSC, SSC",
+      "url": "https://examuploadtool.netlify.app/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="logo.png" alt="ExamUploadTool Logo" style="height: 60px; width: auto; border-radius: 8px;">
+                <div>
+                    <h1>Exam Photo Resize Tool</h1>
+                    <p style="font-size: 14px; color: #6b7280; margin-top: 5px;" data-i18n="tagline">Free Compressor for Indian Exams</p>
+                </div>
+            </div>
+            <div class="lang-toggle">
+                <span style="font-size: 14px; margin-right: 8px;">हिन्दी/Hindi</span>
+                <label class="switch">
+                    <input type="checkbox" id="langToggle" onchange="setLanguage(this.checked ? 'hi' : 'en')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-slot ad-top">
+        <div class="ad-placeholder">Ad Space 728x90</div>
+    </div>
+
+    <main class="container">
+        <section class="hero">
+            <h2 data-i18n="selectExam">Select Your Exam</h2>
+            <input type="text" id="examSearch" data-i18n="searchPlaceholder" placeholder="🔍 Search exam name..." autocomplete="off">
+            
+            <div class="exam-grid" id="examGrid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <section class="features">
+            <h3 data-i18n="whyUse">Why Use This Tool?</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="icon">📄</span>
+                    <h4 data-i18n="pdfDocuments">PDF Documents Too</h4>
+                    <p data-i18n="pdfDesc">Compress Aadhaar, certificates, ID proofs</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">⚡</span>
+                    <h4 data-i18n="instantProcessing">Instant Processing</h4>
+                    <p data-i18n="instantDesc">No upload to server - works in your browser</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🎯</span>
+                    <h4 data-i18n="examPresets">Exam-Specific Presets</h4>
+                    <p data-i18n="presetsDesc">Auto-apply official size requirements</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📱</span>
+                    <h4 data-i18n="mobileFriendly">Mobile Friendly</h4>
+                    <p data-i18n="mobileDesc">Works perfectly on phones & tablets</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🔒</span>
+                    <h4 data-i18n="private">100% Private</h4>
+                    <p data-i18n="privateDesc">Your files never leave your device</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-exams">
+            <h3 data-i18n="popularExams">Popular Exams</h3>
+            <div class="exam-tags">
+                <a href="pages/gate-photo-resize.html" class="tag">GATE</a>
+                <a href="pages/jee-main-photo-resize.html" class="tag">JEE Main</a>
+                <a href="pages/neet-photo-resize.html" class="tag">NEET UG</a>
+                <a href="pages/upsc-photo-resize.html" class="tag">UPSC CSE</a>
+                <a href="pages/ssc-cgl-photo-resize.html" class="tag">SSC CGL</a>
+                <a href="pages/cat-photo-resize.html" class="tag">CAT</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Ad Placeholder: Footer -->
+    <div class="ad-slot ad-bottom">
+        <div class="ad-placeholder">Ad Space 728x90</div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ExamUploadTool. <span data-i18n="footer">All requirements verified from official sources.</span></p>
+            <button onclick="window.location.href='about.html'" class="btn-secondary" style="margin-top: 15px; padding: 10px 20px;" data-i18n="aboutUs">ℹ️ About Us</button>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/exams.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

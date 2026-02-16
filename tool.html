@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize photos, signatures & PDF documents for Indian exam applications. Free online compressor with official size requirements. 100% private, no upload needed.">
+    <meta name="keywords" content="photo compressor, signature resize, PDF document compressor, exam photo tool, certificate compressor, Aadhaar compress">
+    <title>Free Photo & PDF Compressor for Exam Applications - ExamUploadTool</title>
+    <link rel="canonical" href="https://examuploadtool.netlify.app/tool.html">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://examuploadtool.netlify.app/tool.html">
+    <meta property="og:title" content="Compress Photos & Documents - ExamUploadTool">
+    <meta property="og:description" content="Free tool to compress photos, signatures & PDF documents for exam applications. 100% private & client-side.">
+    <meta property="og:image" content="https://examuploadtool.netlify.app/logo.png">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ExamUploadTool",
+      "description": "Free online tool to compress and resize photos, signatures, and PDF documents for Indian government exam applications",
+      "url": "https://examuploadtool.netlify.app/tool.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="index.html"><img src="logo.png" alt="ExamUploadTool Logo" style="height: 60px; width: auto; border-radius: 8px;"></a>
+                <div>
+                    <a href="index.html" class="back-link" data-i18n="backLink">← Back</a>
+                    <h1 id="examTitle">Photo Compressor</h1>
+                </div>
+            </div>
+            <div class="lang-toggle">
+                <span style="font-size: 14px; margin-right: 8px;">हिन्दी/Hindi</span>
+                <label class="switch">
+                    <input type="checkbox" id="langToggle" onchange="setLanguage(this.checked ? 'hi' : 'en')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main class="container tool-page">
+        <div class="tool-layout">
+            <!-- Left: Upload & Settings -->
+            <div class="tool-section">
+                <div class="card">
+                    <h3 data-i18n="selectDocType">1. Select Document Type</h3>
+                    <div class="doc-type-selector">
+                        <button class="doc-btn active" data-type="photo" data-i18n="photo">📷 Photo</button>
+                        <button class="doc-btn" data-type="signature" data-i18n="signature">✍️ Signature</button>
+                        <button class="doc-btn" data-type="documents" data-i18n="documents">📄 Documents</button>
+                    </div>
+                </div>
+
+                <div class="card requirements" id="requirements">
+                    <h3 data-i18n="requirements">📋 Requirements</h3>
+                    
+                    <!-- State PSC Selector (shown only for State PSC exam) -->
+                    <div id="statePscSelector" style="display:none; margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #374151;" data-i18n="selectState">Select State:</label>
+                        <select id="stateDropdown" style="width: 100%; padding: 10px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px;">
+                            <!-- Populated by JS -->
+                        </select>
+                    </div>
+                    
+                    <!-- Document Type Selector (shown only for documents) -->
+                    <div id="docTypeSelector" style="display:none; margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #374151;" data-i18n="selectDocumentType">Select Document Type:</label>
+                        <select id="docTypeDropdown" style="width: 100%; padding: 10px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px;">
+                            <option value="aadhaar">Aadhaar Card (50-300 KB)</option>
+                            <option value="pan">PAN Card (50-300 KB)</option>
+                            <option value="passport">Passport (50-300 KB)</option>
+                            <option value="category">Category Certificate (50-300 KB)</option>
+                            <option value="pwd">PwD Certificate (50-300 KB)</option>
+                            <option value="income">Income Certificate (50-300 KB)</option>
+                            <option value="class10">Class 10 Certificate (50-300 KB)</option>
+                            <option value="class12">Class 12 Certificate (50-300 KB)</option>
+                            <option value="degree">Degree Certificate (50-300 KB)</option>
+                        </select>
+                    </div>
+                    
+                    <div id="reqDetails">
+                        <!-- Populated by JS -->
+                    </div>
+                    
+                    <!-- Custom Requirements Editor -->
+                    <div id="customEditor" style="display:none; margin-top: 15px; padding: 15px; background: #f9fafb; border-radius: 8px;">
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 6px; font-weight: 500; color: #374151; font-size: 13px;" data-i18n="dimensionsLabel">Dimensions (Width × Height in pixels):</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="number" id="customWidth" placeholder="Width" min="50" max="2000" style="flex: 1; padding: 8px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 14px;">
+                                <span style="color: #6b7280; line-height: 36px;">×</span>
+                                <input type="number" id="customHeight" placeholder="Height" min="50" max="2000" style="flex: 1; padding: 8px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 14px;">
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 6px; font-weight: 500; color: #374151; font-size: 13px;" data-i18n="fileSizeRange">File Size Range (KB):</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="number" id="customMinKB" placeholder="Min" min="1" max="10000" style="flex: 1; padding: 8px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 14px;">
+                                <span style="color: #6b7280; line-height: 36px;" data-i18n="to">to</span>
+                                <input type="number" id="customMaxKB" placeholder="Max" min="1" max="10000" style="flex: 1; padding: 8px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="editBtn" class="btn-secondary" style="width: 100%; margin-top: 15px; padding: 10px;" data-i18n="editRequirements">✏️ Edit Requirements</button>
+                </div>
+
+                <div class="card" id="uploadCard">
+                    <h3 data-i18n="uploadFile">2. Upload File</h3>
+                    <div class="upload-zone" id="uploadZone">
+                        <input type="file" id="fileInput" accept="image/*,.pdf" hidden>
+                        <div class="upload-content">
+                            <span class="upload-icon">📁</span>
+                            <p data-i18n="clickOrDrag">Click or drag file here</p>
+                            <small data-i18n="jpgSupported">JPG, JPEG, PNG, PDF supported</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview before compression -->
+                    <div id="preCompress" style="display:none; margin-top: 15px;">
+                        <div style="padding: 15px; background: #f9fafb; border-radius: 8px; text-align: center;">
+                            <p style="margin-bottom: 10px; font-weight: 500;">📄 <span id="fileName"></span></p>
+                            <p style="margin-bottom: 15px; color: #6b7280; font-size: 14px;">Size: <span id="fileSize"></span></p>
+                            <button class="btn-download" id="compressBtn" style="width: 100%;" data-i18n="compressNow">
+                                ⚡ Compress Now
+                            </button>
+                            <button class="btn-secondary" id="cancelBtn" style="width: 100%; margin-top: 8px;" data-i18n="cancel">
+                                ✕ Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ad Placeholder: Sidebar -->
+                <div class="ad-slot ad-sidebar">
+                    <div class="ad-placeholder">Ad 300x250</div>
+                </div>
+            </div>
+
+            <!-- Right: Preview & Download -->
+            <div class="tool-section">
+                <div class="card preview-card" id="previewCard" style="display:none;">
+                    <h3 data-i18n="previewDownload">Preview & Download</h3>
+                    
+                    <div class="preview-container">
+                        <div class="preview-box">
+                            <p class="preview-label" data-i18n="original">Original</p>
+                            <canvas id="originalCanvas"></canvas>
+                            <p class="file-info" id="originalInfo"></p>
+                        </div>
+                        <div class="preview-arrow">→</div>
+                        <div class="preview-box">
+                            <p class="preview-label" data-i18n="compressed">Compressed</p>
+                            <canvas id="compressedCanvas"></canvas>
+                            <p class="file-info" id="compressedInfo"></p>
+                        </div>
+                    </div>
+
+                    <div class="status-badge" id="statusBadge"></div>
+
+                    <button class="btn-download" id="downloadBtn" data-i18n="downloadCompressed">
+                        ⬇️ Download Compressed File
+                    </button>
+
+                    <button class="btn-secondary" id="resetBtn" data-i18n="uploadAnother">
+                        🔄 Upload Another
+                    </button>
+                </div>
+
+                <div class="card" id="placeholderCard">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">🖼️</span>
+                        <p data-i18n="uploadToSee">Upload an image to see preview</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Download Modal -->
+    <div id="downloadModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center;">
+        <div style="background: white; border-radius: 12px; padding: 30px; max-width: 500px; width: 90%; position: relative;">
+            <button id="closeModal" style="position: absolute; top: 15px; right: 15px; background: #ef4444; color: white; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                ×
+            </button>
+            <h2 style="margin: 0 0 20px 0; color: #10b981; font-size: 24px;" data-i18n="downloaded">✓ Downloaded</h2>
+            <div style="background: #f3f4f6; border: 2px dashed #d1d5db; padding: 40px 20px; text-align: center; color: #9ca3af; border-radius: 8px; margin-bottom: 20px;">
+                Ad Space 300x250
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ExamUploadTool. <span data-i18n="footer">All requirements verified from official sources.</span></p>
+            <button onclick="window.location.href='about.html'" class="btn-secondary" style="margin-top: 15px; padding: 10px 20px;" data-i18n="aboutUs">ℹ️ About Us</button>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/exams.js"></script>
+    <script src="js/compressor.js"></script>
+    <script src="js/pdf-compressor.js"></script>
+    <script>
+        // Get exam from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const examId = urlParams.get('exam');
+        const exam = EXAMS.find(e => e.id === examId);
+        
+        if (exam) {
+            document.getElementById('examTitle').textContent = exam.name;
+            initTool(exam);
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

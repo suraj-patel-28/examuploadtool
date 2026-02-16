@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ExamUploadTool</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="index.html"><img src="logo.png" alt="ExamUploadTool Logo" style="height: 60px; width: auto; border-radius: 8px;"></a>
+                <h1 data-i18n="aboutUsTitle">About Us</h1>
+            </div>
+            <div class="lang-toggle">
+                <span style="font-size: 14px; margin-right: 8px;">हिन्दी/Hindi</span>
+                <label class="switch">
+                    <input type="checkbox" id="langToggle" onchange="setLanguage(this.checked ? 'hi' : 'en')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="max-width: 800px; padding: 40px 20px;">
+        <div class="card" style="padding: 30px;">
+            <h2 data-i18n="aboutHeading">About ExamUploadTool</h2>
+            
+            <p data-i18n="aboutPara1" style="margin: 20px 0; line-height: 1.8;">
+                ExamUploadTool is a free, 100% client-side image and PDF compression tool designed specifically for Indian government exam applications. We understand the challenges students face when preparing documents for various competitive exams, and our mission is to make this process simple, fast, and secure.
+            </p>
+
+            <h3 data-i18n="ourMission" style="margin-top: 30px;">Our Mission</h3>
+            <p data-i18n="missionText" style="margin: 15px 0; line-height: 1.8;">
+                To provide students across India with a reliable, privacy-focused tool that helps them meet exact photo, signature, and document requirements for competitive exams without any technical hassle or privacy concerns.
+            </p>
+
+            <h3 data-i18n="whyTrust" style="margin-top: 30px;">Why Trust Us?</h3>
+            <ul style="margin: 15px 0; line-height: 2;">
+                <li data-i18n="trust1">🔒 <strong>100% Privacy:</strong> All processing happens in your browser. Your files never leave your device.</li>
+                <li data-i18n="trust2">⚡ <strong>Instant Results:</strong> No server uploads, no waiting. Compress files in seconds.</li>
+                <li data-i18n="trust3">✅ <strong>Official Requirements:</strong> All exam presets verified from official sources.</li>
+                <li data-i18n="trust4">📱 <strong>Works Everywhere:</strong> Desktop, mobile, tablet - works on all devices.</li>
+                <li data-i18n="trust5">💯 <strong>Completely Free:</strong> No hidden charges, no subscriptions, no ads interfering with your work.</li>
+            </ul>
+
+            <h3 data-i18n="contact" style="margin-top: 30px;">Contact Us</h3>
+            <p data-i18n="contactText" style="margin: 15px 0; line-height: 1.8;">
+                Have questions or suggestions? We'd love to hear from you! Reach out to us for any queries or feedback.
+            </p>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="index.html" class="btn-download" data-i18n="backToHome">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ExamUploadTool. <span data-i18n="footer">All requirements verified from official sources.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+</body>
+</html>
