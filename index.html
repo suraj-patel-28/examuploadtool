@@ -49,7 +49,7 @@
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4437513164906761"
      crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
     <header>
@@ -57,7 +57,7 @@
             <div style="display: flex; align-items: center; gap: 15px;">
                 <img src="logo.png" alt="ExamUploadTool Logo" style="height: 60px; width: auto; border-radius: 8px;">
                 <div>
-                    <h1>Exam Photo Resize Tool</h1>
+                    <h1>Exam Document Resize</h1>
                     <p style="font-size: 14px; color: #6b7280; margin-top: 5px;" data-i18n="tagline">Free Compressor for Indian Exams</p>
                 </div>
             </div>
@@ -77,12 +77,31 @@
     </div>
 
     <main class="container">
+        <!-- Other Tools Button -->
+        <div style="text-align: center; margin: 20px 0;">
+            <button onclick="scrollToTools()" class="btn-other-tools">
+                <span data-i18n="otherTools">🛠️ Other Tools</span>
+            </button>
+        </div>
+
         <section class="hero">
             <h2 data-i18n="selectExam">Select Your Exam</h2>
             <input type="text" id="examSearch" data-i18n="searchPlaceholder" placeholder="🔍 Search exam name..." autocomplete="off">
             
             <div class="exam-grid" id="examGrid">
                 <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Other Tools Section -->
+        <section class="other-tools" id="otherTools">
+            <h3 data-i18n="otherToolsTitle">🛠️ Other Tools</h3>
+            <div class="tools-grid">
+                <a href="pages/image-format-converter.html" class="tool-card">
+                    <span class="tool-icon">🔄</span>
+                    <h4 data-i18n="formatConverter">Format Converter</h4>
+                    <p data-i18n="formatConverterDesc">Convert JPG ↔ PNG ↔ WEBP</p>
+                </a>
             </div>
         </section>
 
@@ -150,5 +169,17 @@
     <script src="js/translations.js"></script>
     <script src="js/exams.js"></script>
     <script src="js/app.js"></script>
+    <script>
+    function scrollToTools() {
+        const element = document.getElementById('otherTools');
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+    </script>
 </body>
 </html>

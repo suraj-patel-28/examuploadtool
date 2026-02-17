@@ -2,7 +2,7 @@
 const TRANSLATIONS = {
     en: {
         // Header
-        tagline: "Resize photos, signatures & PDF documents for Indian exam requirements",
+        tagline: "Resize documents for Free",
         
         // Home page
         selectExam: "Select Your Exam",
@@ -19,6 +19,29 @@ const TRANSLATIONS = {
         private: "100% Private",
         privateDesc: "Your files never leave your device",
         popularExams: "Popular Exams",
+        
+        // Other Tools
+        otherTools: "🛠️ Other Tools",
+        otherToolsTitle: "🛠️ Other Tools",
+        formatConverter: "Format Converter",
+        formatConverterDesc: "Convert JPG ↔ PNG ↔ WEBP",
+        
+        // Format Converter Page
+        formatConverterTitle: "Image Format Converter",
+        formatConverterSubtitle: "Convert images between JPG, PNG, and WEBP formats instantly",
+        uploadImage: "1. Upload Image",
+        selectFormat: "2. Select Output Format",
+        convertDownload: "3. Convert & Download",
+        convertNow: "🔄 Convert Now",
+        downloadConverted: "⬇️ Download Converted Image",
+        convertAnother: "🔄 Convert Another",
+        converting: "🔄 Converting...",
+        conversionComplete: "✅ Conversion Complete!",
+        outputFormat: "Output Format:",
+        jpgFormat: "JPG (Smaller size, no transparency)",
+        pngFormat: "PNG (Lossless, supports transparency)",
+        webpFormat: "WEBP (Modern, best compression)",
+        converted: "Converted",
         
         // Tool page
         backLink: "← Back",
@@ -135,6 +158,29 @@ const TRANSLATIONS = {
         private: "100% निजी",
         privateDesc: "आपकी फाइलें कभी आपके डिवाइस से बाहर नहीं जातीं",
         popularExams: "लोकप्रिय परीक्षाएं",
+        
+        // Other Tools
+        otherTools: "🛠️ अन्य टूल",
+        otherToolsTitle: "🛠️ अन्य टूल",
+        formatConverter: "फॉर्मेट कन्वर्टर",
+        formatConverterDesc: "JPG ↔ PNG ↔ WEBP में बदलें",
+        
+        // Format Converter Page
+        formatConverterTitle: "इमेज फॉर्मेट कन्वर्टर",
+        formatConverterSubtitle: "JPG, PNG, और WEBP फॉर्मेट के बीच तुरंत छवियां बदलें",
+        uploadImage: "1. छवि अपलोड करें",
+        selectFormat: "2. आउटपुट फॉर्मेट चुनें",
+        convertDownload: "3. बदलें और डाउनलोड करें",
+        convertNow: "🔄 अभी बदलें",
+        downloadConverted: "⬇️ परिवर्तित छवि डाउनलोड करें",
+        convertAnother: "🔄 एक और बदलें",
+        converting: "🔄 बदला जा रहा है...",
+        conversionComplete: "✅ रूपांतरण पूर्ण!",
+        outputFormat: "आउटपुट फॉर्मेट:",
+        jpgFormat: "JPG (छोटा आकार, कोई पारदर्शिता नहीं)",
+        pngFormat: "PNG (लॉसलेस, पारदर्शिता समर्थित)",
+        webpFormat: "WEBP (आधुनिक, सर्वोत्तम संपीड़न)",
+        converted: "परिवर्तित",
         
         // Tool page
         backLink: "← वापस",

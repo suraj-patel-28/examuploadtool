@@ -1,0 +1,18 @@
+# Cache Control Headers
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Build Settings
+[build]
+  publish = "."
+  
+# Force cache invalidation on deploy
+[build.environment]
+  NODE_VERSION = "18"

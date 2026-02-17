@@ -473,6 +473,304 @@ footer {
     margin-top: 60px;
 }
 
+/* Other Tools Button */
+.btn-other-tools {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-other-tools:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Other Tools Section */
+.other-tools {
+    margin: 60px 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 16px;
+}
+
+.other-tools h3 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #111827;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tool-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.tool-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.tool-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #111827;
+    font-weight: 600;
+}
+
+.tool-card p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Format Converter Styles */
+.format-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.format-option {
+    cursor: pointer;
+}
+
+.format-option input[type="radio"] {
+    display: none;
+}
+
+.format-card {
+    padding: 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s;
+    background: #fff;
+}
+
+.format-option input[type="radio"]:checked + .format-card {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.format-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.format-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.format-card strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #111827;
+}
+
+.format-card small {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+/* Ad Modal Styles */
+.ad-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.ad-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.ad-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.ad-close-btn:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+.ad-modal-body {
+    min-width: 300px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .ad-modal-content {
+        max-width: 95%;
+        padding: 15px;
+    }
+    
+    .ad-modal-body {
+        min-width: 280px;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Format Converter Mobile Optimization */
+    .format-selector {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .format-card {
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 12px;
+    }
+    
+    .format-icon {
+        font-size: 24px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    
+    .format-card strong {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+    
+    .format-card small {
+        font-size: 11px;
+    }
+    
+    .upload-zone {
+        padding: 25px 15px;
+    }
+    
+    .upload-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    
+    .upload-content p {
+        font-size: 14px;
+    }
+    
+    .upload-content small {
+        font-size: 12px;
+    }
+    
+    .card h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .preview-container {
+        gap: 10px;
+    }
+    
+    .preview-label {
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+    
+    .file-info {
+        font-size: 10px;
+        margin-top: 5px;
+    }
+    
+    .status-badge {
+        padding: 10px;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .btn-download {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .btn-secondary {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 10px;
@@ -480,6 +778,33 @@ footer {
     
     main {
         padding: 15px 0;
+    }
+    
+    /* Other Tools Mobile Fix */
+    .other-tools {
+        margin: 30px -10px;
+        padding: 30px 10px;
+        border-radius: 0;
+    }
+    
+    .other-tools h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .tool-card {
+        padding: 25px 20px;
+    }
+    
+    .btn-other-tools {
+        padding: 10px 25px;
+        font-size: 14px;
     }
     
     .tool-layout {

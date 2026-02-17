@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Format Converter – JPG to PNG, PNG to JPG | ExamUploadTool</title>
+    <meta name="description" content="Free image format converter for GATE, JEE, NEET, UPSC, SSC exam uploads. Convert JPG to PNG, PNG to WEBP, WEBP to JPG instantly. 100% client-side processing.">
+    <link rel="canonical" href="https://examuploadtool.com/pages/image-format-converter.html">
+    <link rel="stylesheet" href="../css/style.css?v=2">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4437513164906761"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="../index.html"><img src="../logo.png" alt="ExamUploadTool Logo" style="height: 60px; width: auto; border-radius: 8px;"></a>
+                <div>
+                    <a href="../index.html" class="back-link" data-i18n="backLink">← Back</a>
+                    <h1 data-i18n="formatConverterTitle">Image Format Converter (JPG ↔ PNG)</h1>
+                </div>
+            </div>
+            <div class="lang-toggle">
+                <span style="font-size: 14px; margin-right: 8px;">हिन्दी/Hindi</span>
+                <label class="switch">
+                    <input type="checkbox" id="langToggle" onchange="setLanguage(this.checked ? 'hi' : 'en')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main class="container tool-page">
+        <div class="tool-layout">
+            <!-- Left Column: Upload & Settings -->
+            <div>
+                <div class="card">
+                    <h3 data-i18n="uploadImage">1. Upload Image</h3>
+                    <div class="upload-zone" id="uploadZone">
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        <div class="upload-content">
+                            <span class="upload-icon">🖼️</span>
+                            <p data-i18n="clickOrDrag">Click or drag image here</p>
+                            <small data-i18n="jpgSupported">JPG, PNG, WEBP supported</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="selectFormat">2. Select Output Format</h3>
+                    <div class="format-selector">
+                        <label class="format-option">
+                            <input type="radio" name="format" value="image/jpeg" checked>
+                            <div class="format-card">
+                                <span class="format-icon">📄</span>
+                                <strong>JPG</strong>
+                                <small data-i18n="jpgFormat">Smaller size, no transparency</small>
+                            </div>
+                        </label>
+                        <label class="format-option">
+                            <input type="radio" name="format" value="image/png">
+                            <div class="format-card">
+                                <span class="format-icon">🖼️</span>
+                                <strong>PNG</strong>
+                                <small data-i18n="pngFormat">Lossless, supports transparency</small>
+                            </div>
+                        </label>
+                        <label class="format-option">
+                            <input type="radio" name="format" value="image/webp">
+                            <div class="format-card">
+                                <span class="format-icon">⚡</span>
+                                <strong>WEBP</strong>
+                                <small data-i18n="webpFormat">Modern, best compression</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="convertBtn" class="btn-download" style="display: none;" data-i18n="convertNow">🔄 Convert Now</button>
+            </div>
+
+            <!-- Right Column: Preview & Download -->
+            <div>
+                <div class="card preview-card">
+                    <h3 data-i18n="convertDownload">3. Convert & Download</h3>
+                    <div id="previewArea" class="placeholder-content">
+                        <span class="placeholder-icon">🔄</span>
+                        <p data-i18n="uploadToSee">Upload an image to start conversion</p>
+                    </div>
+                    <div id="resultArea" style="display: none;">
+                        <div class="preview-container">
+                            <div class="preview-box">
+                                <div class="preview-label" data-i18n="original">Original</div>
+                                <canvas id="originalCanvas"></canvas>
+                                <div class="file-info" id="originalInfo"></div>
+                            </div>
+                            <span class="preview-arrow">→</span>
+                            <div class="preview-box">
+                                <div class="preview-label">Converted</div>
+                                <canvas id="convertedCanvas"></canvas>
+                                <div class="file-info" id="convertedInfo"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-badge success" id="statusBadge" style="display: none;">
+                            <span data-i18n="conversionComplete">✅ Conversion Complete!</span>
+                        </div>
+                        
+                        <!-- Ad Modal Overlay -->
+                        <div id="adModal" class="ad-modal" style="display: none;">
+                            <div class="ad-modal-content">
+                                <button class="ad-close-btn" id="closeAdBtn">✕</button>
+                                <div class="ad-modal-body">
+                                    <ins class="adsbygoogle"
+                                         style="display:block"
+                                         data-ad-client="ca-pub-4437513164906761"
+                                         data-ad-slot="1234567890"
+                                         data-ad-format="auto"
+                                         data-full-width-responsive="true"></ins>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="downloadBtn" class="btn-download" style="display: none;" data-i18n="downloadConverted">⬇️ Download Converted Image</button>
+                        <button id="resetBtn" class="btn-secondary" style="display: none;" data-i18n="convertAnother">🔄 Convert Another</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ad Placeholder: Before SEO Content -->
+    <div class="ad-slot ad-bottom">
+        <div class="ad-placeholder">Ad Space 728x90</div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <section class="container" style="max-width: 900px; margin: 40px auto; padding: 20px;">
+        <h2 style="font-size: 24px; margin-bottom: 15px; color: #111827;">Image Format Converter for GATE, JEE, NEET, UPSC, SSC Exams</h2>
+        <p style="line-height: 1.8; color: #374151; margin-bottom: 15px;">
+            Convert image formats for GATE 2026, JEE Main, NEET UG, UPSC CSE, SSC CGL, and other Indian government exams. Some exam portals only accept JPG files, while others require PNG format. Our free format converter supports JPG to PNG, PNG to JPG, WEBP to JPG, and all other format conversions instantly without quality loss.
+        </p>
+        
+        <h3 style="font-size: 20px; margin: 20px 0 10px; color: #111827;">JPG vs PNG - Which Format to Use?</h3>
+        <p style="line-height: 1.8; color: #374151; margin-bottom: 15px;">
+            <strong>JPG Format:</strong> Best for photographs and images with many colors. Smaller file size but doesn't support transparency. Most exam portals accept JPG format.<br>
+            <strong>PNG Format:</strong> Lossless compression with transparency support. Slightly larger file size but maintains perfect quality. Required by some exam applications.<br>
+            <strong>WEBP Format:</strong> Modern format with excellent compression. Converts easily to JPG or PNG when needed.
+        </p>
+        
+        <h3 style="font-size: 20px; margin: 20px 0 10px; color: #111827;">Format Converter for All Major Exams</h3>
+        <p style="line-height: 1.8; color: #374151; margin-bottom: 15px;">
+            Our format converter works for GATE, JEE Main, NEET UG, UPSC (CSE/IES/NDA/CDS), SSC (CGL/CHSL/GD), IBPS PO/Clerk, SBI PO/Clerk, RBI Grade B, CAT, XAT, CUET, AFCAT, CTET, and State PSC exams. The tool uses HTML5 Canvas API to convert images directly in your browser with 100% privacy. No files uploaded to any server. Simply upload, select format (JPG/PNG/WEBP), and download instantly.
+        </p>
+    </section>
+
+    <!-- Ad Placeholder: Footer -->
+    <div class="ad-slot ad-bottom">
+        <div class="ad-placeholder">Ad Space 728x90</div>
+    </div>
+
+    <canvas id="hiddenCanvas" style="display: none;"></canvas>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ExamUploadTool. <span data-i18n="footer">All requirements verified from official sources.</span></p>
+            <p style="margin-top: 10px;">
+                <a href="privacy.html" style="color: #3b82f6; margin: 0 10px;">Privacy Policy</a> |
+                <a href="terms.html" style="color: #3b82f6; margin: 0 10px;">Terms & Conditions</a> |
+                <a href="about.html" style="color: #3b82f6; margin: 0 10px;">About</a> |
+                <a href="contact.html" style="color: #3b82f6; margin: 0 10px;">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/format-converter.js"></script>
+</body>
+</html>
